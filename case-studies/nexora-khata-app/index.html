@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Low-Cost Khata App for a Plywood Trader | Simplifex</title>
+<meta name="description" content="How Simplifex built a khata-style ledger app for Nexora Global Ventures that runs on about ₹700 a month, and cut statement PDF exports from 20 s to 1.3 s.">
+<link rel="canonical" href="https://simplifex.co.in/case-studies/nexora-khata-app/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#0B1B3F">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Simplifex">
+<meta property="og:locale" content="en_IN">
+<meta property="og:url" content="https://simplifex.co.in/case-studies/nexora-khata-app/">
+<meta property="og:title" content="Low-Cost Khata App for a Plywood Trader | Simplifex">
+<meta property="og:description" content="How Simplifex built a khata-style ledger app for Nexora Global Ventures that runs on about ₹700 a month, and cut statement PDF exports from 20 s to 1.3 s.">
+<meta property="og:image" content="https://simplifex.co.in/case-studies/nexora-khata-app/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Case study: khata ledger app for about ₹700 a month; statement PDF 20 s to 1.3 s">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Low-Cost Khata App for a Plywood Trader | Simplifex">
+<meta name="twitter:description" content="How Simplifex built a khata-style ledger app for Nexora Global Ventures that runs on about ₹700 a month, and cut statement PDF exports from 20 s to 1.3 s.">
+<meta name="twitter:image" content="https://simplifex.co.in/case-studies/nexora-khata-app/og.jpg">
+
+<link rel="icon" href="../../favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+<link rel="manifest" href="../../site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Article",
+   "@id": "https://simplifex.co.in/case-studies/nexora-khata-app/#article",
+   "headline": "A khata-style ledger app that runs for about ₹700 a month",
+   "description": "How Simplifex built a khata-style ledger app for Nexora Global Ventures that runs on about ₹700 a month, and cut statement PDF exports from 20 s to 1.3 s.",
+   "url": "https://simplifex.co.in/case-studies/nexora-khata-app/",
+   "mainEntityOfPage": "https://simplifex.co.in/case-studies/nexora-khata-app/",
+   "image": "https://simplifex.co.in/case-studies/nexora-khata-app/og.jpg",
+   "datePublished": "2026-11-24",
+   "dateModified": "2026-11-24",
+   "inLanguage": "en-IN",
+   "author": {
+    "@type": "Organization",
+    "@id": "https://simplifex.co.in/#organization",
+    "name": "Simplifex",
+    "url": "https://simplifex.co.in/",
+    "logo": "https://simplifex.co.in/logo.png"
+   },
+   "publisher": {
+    "@type": "Organization",
+    "@id": "https://simplifex.co.in/#organization",
+    "name": "Simplifex",
+    "url": "https://simplifex.co.in/",
+    "logo": "https://simplifex.co.in/logo.png"
+   },
+   "about": [
+    {
+     "@type": "Organization",
+     "name": "Nexora Global Ventures",
+     "url": "https://nexoraglobalventures.com/"
+    }
+   ],
+   "keywords": "khata app, ledger software, plywood trader software, Django, SQLite, low-cost hosting, PDF export performance, ReportLab, Kerala"
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://simplifex.co.in/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Case studies",
+     "item": "https://simplifex.co.in/case-studies/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Nexora Global Ventures",
+     "item": "https://simplifex.co.in/case-studies/nexora-khata-app/"
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<style>
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:#FFFFFF;color:#0B1B3F;font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+img{max-width:100%}
+h1,h2,h3{font-family:"Sora","IBM Plex Sans",system-ui,sans-serif;text-wrap:balance}
+a{color:#047857}a:hover{color:#065F46}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #34E3A0;outline-offset:2px}
+[id]{scroll-margin-top:76px}
+
+.sx-wrap{max-width:1240px;margin:0 auto;padding-left:24px;padding-right:24px}
+.sx-sec{padding-top:112px;padding-bottom:112px}
+.sx-eyebrow{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.sx-h2{margin:14px 0 0;font-size:clamp(30px,4vw,48px);line-height:1.1;font-weight:800;letter-spacing:-0.03em}
+
+.sx-navlink{color:#334164;text-decoration:none;font-weight:500;font-size:15px;padding:10px 4px}
+.sx-navlink:hover{color:#0B1B3F}
+.sx-menubtn{display:none}
+.sx-mobilelink{display:block;color:#0B1B3F;text-decoration:none;font-weight:600;font-size:17px;padding:14px 4px;border-bottom:1px solid #E3E8F0}
+.sx-btn{transition:transform .15s ease, box-shadow .15s ease}
+.sx-btn:hover{transform:translateY(-1px)}
+.sx-card{transition:border-color .2s ease, box-shadow .2s ease, transform .2s ease}
+.sx-card:hover{border-color:#34E3A0;box-shadow:0 18px 40px -24px rgba(11,27,63,.35);transform:translateY(-2px)}
+.sx-cursor{display:inline-block;width:9px;height:17px;background:#34E3A0;vertical-align:-3px;animation:sxblink 1.1s steps(1) infinite}
+@keyframes sxblink{50%{opacity:0}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.sx-cursor{animation:none}.sx-btn,.sx-card{transition:none}.sx-btn:hover,.sx-card:hover{transform:none}}
+
+@media (max-width: 900px){
+  .sx-navlinks,.sx-navcta{display:none !important}
+  .sx-menubtn{display:flex !important}
+  .sx-sec{padding-top:72px;padding-bottom:72px}
+  .sx-hero{padding-top:56px !important;padding-bottom:64px !important}
+}
+@media (max-width: 560px){
+  .sx-wrap{padding-left:18px;padding-right:18px}
+  .sx-sec{padding-top:60px;padding-bottom:60px}
+  .sx-lede{font-size:17px !important}
+  .sx-term{font-size:12.5px !important;padding:18px 16px 20px !important}
+  .sx-panel{padding:24px 20px !important}
+  .sx-form{padding:22px 18px !important}
+  .sx-ctarow a{flex:1 1 100%;text-align:center}
+  .sx-formbtn{align-self:stretch !important}
+  .sx-logo{height:30px !important}
+}
+
+.sx-menubtn .sx-ico-close{display:none}
+.sx-menubtn[aria-expanded="true"] .sx-ico-close{display:block}
+.sx-menubtn[aria-expanded="true"] .sx-ico-open{display:none}
+.sx-skip{position:absolute;left:-9999px;top:8px;z-index:100;background:#0B1B3F;color:#fff;padding:10px 16px;border-radius:8px}
+.sx-skip:focus{left:8px;color:#fff}
+.sx-faq{border-bottom:1px solid #DDE4EE;padding:20px 0}
+.sx-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.sx-faq summary::-webkit-details-marker{display:none}
+.sx-faq summary::after{content:"+";font-family:"IBM Plex Mono",monospace;font-size:22px;line-height:1;color:#047857;flex:none}
+.sx-faq[open] summary::after{content:"\2212"}
+.sx-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.sx-status{margin:0;font-size:15px;line-height:1.5;padding:12px 14px;border-radius:10px}
+.sx-status.ok{background:#E7F8F0;color:#065F46;border:1px solid #A7E9CC}
+.sx-status.err{background:#FDECEC;color:#8A1C1C;border:1px solid #F5C2C2}
+.sx-form [aria-invalid="true"]{border-color:#B42318 !important}
+.sx-formbtn[disabled]{opacity:.65;cursor:wait}
+@media (min-width: 901px){#sx-mobilenav{display:none !important}}
+
+.cs-crumb{font-size:14px;color:#5A6785;display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;padding:0;list-style:none}
+.cs-crumb a{color:#334164;text-decoration:none}.cs-crumb a:hover{color:#047857;text-decoration:underline}
+.cs-crumb li+li::before{content:"/";margin-right:6px;color:#9AA6BF}
+.cs-h1{margin:0;font-size:clamp(32px,4.6vw,56px);line-height:1.08;font-weight:800;letter-spacing:-0.03em;color:#0B1B3F}
+.cs-lede{margin:0;max-width:720px;font-size:19px;line-height:1.6;color:#3E4C6B}
+.cs-tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.cs-tags li{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;color:#0B1B3F;background:#FFFFFF;border:1px solid #D5DDE8;border-radius:999px;padding:5px 11px}
+.cs-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.cs-stat{background:#FFFFFF;border:1px solid #DDE4EE;border-radius:16px;padding:22px 22px 20px}
+.cs-stat b{display:block;font-family:"Sora",sans-serif;font-size:clamp(26px,3vw,34px);line-height:1.1;font-weight:800;letter-spacing:-0.02em;color:#0B1B3F}
+.cs-stat span{display:block;margin-top:8px;font-size:14.5px;line-height:1.45;color:#3E4C6B}
+.cs-stat.dark{background:#0B1B3F;border-color:#0B1B3F}.cs-stat.dark b{color:#34E3A0}.cs-stat.dark span{color:#C9D3EE}
+.cs-layout{display:flex;flex-wrap:wrap;gap:48px 64px;align-items:flex-start}
+.cs-aside{flex:1 1 260px;min-width:0;position:sticky;top:96px;display:flex;flex-direction:column;gap:18px}
+.cs-main{flex:3 1 560px;min-width:0;max-width:760px}
+.cs-prose{font-size:17.5px;line-height:1.75;color:#26324F}
+.cs-prose h2{margin:56px 0 14px;font-size:clamp(24px,2.6vw,32px);line-height:1.2;font-weight:800;letter-spacing:-0.02em;color:#0B1B3F}
+.cs-prose h2:first-child{margin-top:0}
+.cs-prose h3{margin:30px 0 8px;font-size:19px;line-height:1.3;font-weight:700;color:#0B1B3F}
+.cs-prose p{margin:0 0 16px}
+.cs-prose ul,.cs-prose ol{margin:0 0 18px;padding-left:22px}
+.cs-prose li{margin:0 0 8px}
+.cs-prose code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;background:#EEF2F8;border:1px solid #DDE4EE;border-radius:6px;padding:1px 6px;color:#0B1B3F}
+.cs-num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:13px;color:#047857;letter-spacing:.06em;display:block;margin-bottom:4px}
+.cs-note{background:#F4F7FB;border:1px solid #DDE4EE;border-left:4px solid #34E3A0;border-radius:12px;padding:18px 20px;margin:22px 0;font-size:16px;line-height:1.65;color:#26324F}
+.cs-note.warn{border-left-color:#F2B84B;background:#FFF9EC;border-color:#F3E2BC}
+.cs-tablewrap{overflow-x:auto;margin:20px 0 10px;border:1px solid #DDE4EE;border-radius:14px}
+.cs-table{width:100%;border-collapse:collapse;font-size:15.5px;min-width:520px}
+.cs-table th{background:#0B1B3F;color:#FFFFFF;text-align:left;font-weight:600;padding:12px 16px;font-size:14px}
+.cs-table td{padding:12px 16px;border-top:1px solid #E3E8F0;color:#26324F;vertical-align:top}
+.cs-table tr:nth-child(even) td{background:#F8FAFD}
+.cs-table td.n,.cs-table th.n{text-align:right;font-family:"IBM Plex Mono",ui-monospace,monospace;white-space:nowrap}
+.cs-table td.good{color:#047857;font-weight:600}
+.cs-caption{font-size:14px;line-height:1.55;color:#5A6785;margin:0 0 18px}
+.cs-stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0 22px}
+.cs-stack div{background:#FFFFFF;border:1px solid #DDE4EE;border-radius:12px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.cs-stack b{display:block;color:#0B1B3F;font-size:15.5px;margin-bottom:2px}
+.cs-box{background:#FFFFFF;border:1px solid #DDE4EE;border-radius:16px;padding:22px}
+.cs-box dt{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5A6785;margin-top:14px}
+.cs-box dt:first-child{margin-top:0}
+.cs-box dd{margin:4px 0 0;font-size:15.5px;line-height:1.5;color:#0B1B3F;font-weight:500}
+.cs-card{display:flex;flex-wrap:wrap;gap:0;background:#FFFFFF;border:1px solid #DDE4EE;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
+.cs-card:hover{border-color:#34E3A0;box-shadow:0 24px 50px -28px rgba(11,27,63,.4);transform:translateY(-2px);color:inherit}
+.cs-card-body{flex:3 1 420px;min-width:0;padding:34px;display:flex;flex-direction:column;gap:16px}
+.cs-card-side{flex:2 1 300px;min-width:0;background:#0B1B3F;padding:30px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+.cs-card-side div b{display:block;font-family:"Sora",sans-serif;font-size:30px;font-weight:800;color:#34E3A0;letter-spacing:-0.02em;line-height:1.1}
+.cs-card-side div span{display:block;font-size:14.5px;color:#C9D3EE;margin-top:4px}
+.cs-more{font-weight:600;color:#047857}
+.cs-card:hover .cs-more{text-decoration:underline}
+@media (max-width: 900px){.cs-aside{position:static}}
+@media (max-width: 560px){.cs-card-body{padding:24px 20px}.cs-card-side{padding:24px 20px}.cs-prose{font-size:16.5px}.cs-lede{font-size:17px}}
+@media (prefers-reduced-motion: reduce){.cs-card{transition:none}.cs-card:hover{transform:none}}
+</style>
+</head>
+<body>
+<a class="sx-skip" href="#main">Skip to content</a>
+<div style="width: 100%; background: #FFFFFF;">
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #E3E8F0;">
+  <div class="sx-wrap" style="padding-top: 12px; padding-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+    <a href="../../" aria-label="Simplifex home" style="display: flex; align-items: center; min-width: 0;">
+      <picture><source srcset="../../logo.webp" type="image/webp"><img class="sx-logo" src="../../logo.png" alt="Simplifex logo" width="155" height="36" fetchpriority="high" style="height: 36px; width: auto; display: block;"></picture>
+    </a>
+    <nav class="sx-navlinks" aria-label="Main" style="display: flex; align-items: center; gap: 28px;">
+      <a class="sx-navlink" href="../../#erp">ERP</a>
+      <a class="sx-navlink" href="../../#ecommerce">E-commerce</a>
+      <a class="sx-navlink" href="../../#industries">Industries</a>
+      <a class="sx-navlink" href="../../case-studies/" aria-current="page" style="color:#0B1B3F;font-weight:600">Case studies</a>
+      <a class="sx-navlink" href="../../#process">Process</a>
+    </nav>
+    <a class="sx-btn sx-navcta" href="../../#contact" style="background: #0B1B3F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 10px; white-space: nowrap;">Start a project</a>
+    <button class="sx-menubtn" id="sx-menubtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sx-mobilenav" style="width: 46px; height: 46px; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #C9D3E1; border-radius: 10px; cursor: pointer; padding: 0; flex: none;">
+      <svg class="sx-ico-close" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B3F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      <svg class="sx-ico-open" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0B1B3F" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+  </div>
+  <nav id="sx-mobilenav" aria-label="Mobile" hidden style="border-top: 1px solid #E3E8F0; background: #FFFFFF;">
+      <div class="sx-wrap" style="padding-top: 4px; padding-bottom: 20px; display: flex; flex-direction: column;">
+        <a class="sx-mobilelink" href="../../#erp">ERP systems</a>
+        <a class="sx-mobilelink" href="../../#ecommerce">E-commerce</a>
+        <a class="sx-mobilelink" href="../../#industries">Industries</a>
+        <a class="sx-mobilelink" href="../../case-studies/">Case studies</a>
+        <a class="sx-mobilelink" href="../../#process">How we work</a>
+        <a href="../../#contact" style="margin-top: 18px; display: block; text-align: center; background: #0B1B3F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 15px 20px; border-radius: 12px;">Start a project</a>
+      </div>
+    </nav>
+</header>
+
+<main id="main">
+<section style="position: relative; overflow: hidden; background: #F4F7FB; border-bottom: 1px solid #E3E8F0;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(#E3E8F0 1px, transparent 1px), linear-gradient(90deg, #E3E8F0 1px, transparent 1px); background-size: 48px 48px; opacity: 0.55;"></div>
+  <div class="sx-wrap" style="position: relative; padding-top: 40px; padding-bottom: 72px; display: flex; flex-direction: column; gap: 24px;">
+    <nav aria-label="Breadcrumb"><ol class="cs-crumb"><li><a href="../../">Home</a></li><li><a href="../">Case studies</a></li><li aria-current="page">Nexora Global Ventures</li></ol></nav>
+    <div class="sx-eyebrow" style="color: #047857; margin-top: 16px;">Case study · Custom software · Plywood trading</div>
+    <p style="margin: -10px 0 0; font-size: 14px; color: #5A6785;">By the Simplifex team · Published <time datetime="2026-11-24">24 November 2026</time></p>
+    <h1 class="cs-h1" style="max-width: 900px;">A khata-style ledger app that runs for about ₹700 a month</h1>
+    <p class="cs-lede">Nexora Global Ventures wanted a simple digital khata to track what each party owes. Their main requirement was keeping running costs as low as possible. We built it on a single small server with SQLite. When years of old records moved in, one feature hit its limit. Here is how we found the cause and fixed it.</p>
+    <ul class="cs-tags" aria-label="Technologies"><li>Django</li><li>SQLite</li><li>DigitalOcean 1&nbsp;GB droplet</li><li>ReportLab</li><li>Performance profiling</li></ul>
+    <div class="cs-stats" style="margin-top: 20px;">
+      <div class="cs-stat dark"><b>~₹700</b><span>server cost per month</span></div>
+      <div class="cs-stat"><b>20&nbsp;s → 1.3&nbsp;s</b><span>3,000-row statement PDF, about 15× faster</span></div>
+      <div class="cs-stat"><b>Every hour</b><span>automatic database backup</span></div>
+      <div class="cs-stat"><b>~150</b><span>new entries a month, the volume we designed for</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="background: #FFFFFF;">
+  <div class="sx-wrap sx-sec cs-layout" style="padding-top: 72px;">
+    <aside class="cs-aside" aria-label="Project summary">
+      <dl class="cs-box" style="margin:0">
+        <dt>Client</dt><dd><a href="https://nexoraglobalventures.com/" rel="noopener" style="color:#0B1B3F">Nexora Global Ventures</a></dd>
+        <dt>Business</dt><dd>Plywood &amp; face veneer trading</dd>
+        <dt>Location</dt><dd>Perumbavoor, Ernakulam, Kerala</dd>
+        <dt>What we built</dt><dd>Khata-style party ledger with statements and PDF export</dd>
+        <dt>Hosting</dt><dd>1 GB DigitalOcean droplet + SQLite</dd>
+        <dt>Running cost</dt><dd>About ₹700 / month</dd>
+      </dl>
+      <a class="sx-btn" href="../../#contact" style="background: #0B1B3F; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; padding: 14px 20px; border-radius: 12px; text-align: center;">Discuss a similar project</a>
+    </aside>
+
+    <article class="cs-main cs-prose">
+      <h2><span class="cs-num">01 · The brief</span>A khata book built for their business, with tiny running costs</h2>
+      <p><a href="https://nexoraglobalventures.com/" rel="noopener">Nexora Global Ventures</a> is a plywood and face veneer trader in Perumbavoor. They supply designers, builders and furniture makers. Like many traders, they track credit and payments party by party, the way a traditional <em>khata</em> book does.</p>
+      <p>They wanted their own app for this, built around how they work rather than a generic one. Their numbers were small: <strong>at most about 150 entries a month</strong>. So their top priority was clear: <strong>keep the monthly running cost as low as possible.</strong></p>
+
+      <h2><span class="cs-num">02 · Our approach</span>An honest experiment</h2>
+      <p>We were upfront with them. Running a business app this cheaply was an experiment, and we couldn't promise it would be enough for everything. But at 150 entries a month it was worth trying, as long as we measured carefully and had a way out if it didn't hold.</p>
+      <div class="cs-stack">
+        <div><b>One small server</b>A 1 GB DigitalOcean droplet, about ₹700 a month.</div>
+        <div><b>SQLite as the database</b>No separate database server to pay for or maintain.</div>
+        <div><b>Hourly backups</b>The SQLite database file is backed up every hour, so little can ever be lost.</div>
+        <div><b>Optimised queries</b>SQL queries tuned and N+1 query problems removed, so every page does only the work it needs.</div>
+        <div><b>Slow-page monitoring</b><a href="https://pypi.org/project/django-performance-monitor/" rel="noopener">django-performance-monitor</a> logs any request slower than a set threshold, so we can see problems before users report them.</div>
+      </div>
+      <p>It worked. Day-to-day entries, party ledgers and reports all ran smoothly on the small server.</p>
+
+      <h2><span class="cs-num">03 · The problem</span>Old data arrived, and one button maxed out the CPU</h2>
+      <p>Everything stayed smooth until we migrated the client's old records. Every page still loaded quickly. But <strong>exporting a party statement as a PDF pushed the server's CPU to 100%</strong>. Parties with long histories now had statements with thousands of rows.</p>
+      <p>On a single-CPU server, that's not just one slow download. A busy CPU slows the app down for everyone using it at that moment.</p>
+      <p>The easy answer would have been a bigger server, but that would have raised the monthly cost the client cared about. We decided to measure first.</p>
+
+      <h2><span class="cs-num">04 · What we found</span>Measured, not guessed</h2>
+      <p>The statements were being produced with WeasyPrint. It turns an HTML page into a PDF using a full layout engine, much like a web browser does. That is a good choice for invoices, but it's expensive for very long tables: for every row it works out styles, column widths and the position of every cell.</p>
+      <div class="cs-tablewrap"><table class="cs-table">
+        <thead><tr><th>Test (old method)</th><th class="n">Time</th></tr></thead>
+        <tbody>
+          <tr><td>300-row statement</td><td class="n">2.4 s</td></tr>
+          <tr><td>1,000-row statement</td><td class="n">6.6 s</td></tr>
+          <tr><td>1,000 rows, with the text-wrapping style on the narration column</td><td class="n">12.4 s</td></tr>
+          <tr><td>3,000 rows, split into 6 parts and merged</td><td class="n">~20 s</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cs-caption">Benchmarks on a development machine with test data and caches turned off.</p>
+      <p>The tests showed several things were adding up:</p>
+      <ul>
+        <li><strong>The layout engine itself</strong> took roughly 6–7 milliseconds per row. That adds up to many seconds for a long statement.</li>
+        <li><strong>One line of styling doubled the time.</strong> The rule that wrapped long narration text roughly doubled the cost. Changing the font made no difference.</li>
+        <li><strong>Splitting the work didn't help.</strong> Breaking big statements into parts meant each part paid the setup cost again, and then the parts had to be merged.</li>
+        <li><strong>Users queued behind each other.</strong> A safety lock let only one PDF render at a time, so two people exporting at once had to wait in line.</li>
+        <li><strong>The cache only helped repeats.</strong> Re-downloading the same statement was fast, but every new or changed statement paid the full price.</li>
+      </ul>
+      <p>We also found a bug along the way: statements large enough to be split into parts crashed because of a change in a PDF library. We fixed that too.</p>
+
+      <h2><span class="cs-num">05 · The fix</span>Draw the statement directly, skip the layout engine</h2>
+      <p>A statement is a simple, predictable table, so it doesn't need a browser-style layout engine. We rewrote statement export to draw the PDF directly with <strong>ReportLab</strong>, placing text straight onto the page. The finished statement still has everything the client needs:</p>
+      <ul>
+        <li>Letterhead, party details, and an opening balance / debit / credit summary</li>
+        <li>A table header that repeats on every page, striped rows, and Dr/Cr colouring</li>
+        <li>Long narrations wrapped neatly, with a footer on every page showing the date and "Page X of Y"</li>
+      </ul>
+      <p>Two more details kept it fast and light on a 1 GB server:</p>
+      <ul>
+        <li><strong>Rows are streamed in batches of 500</strong> from the database instead of being loaded all at once, so memory use stays flat even for very long statements.</li>
+        <li><strong>We profiled our own first version too.</strong> The profiler showed each cell's text was being wrapped three times. Wrapping it once halved the time again.</li>
+      </ul>
+      <div class="cs-note">Invoices and the P&amp;L report still use the original engine. They are short documents and fast enough, so there was no reason to change them.</div>
+
+      <h2><span class="cs-num">06 · The results</span>15–20× faster statement exports</h2>
+      <div class="cs-tablewrap"><table class="cs-table">
+        <thead><tr><th>Statement size</th><th class="n">Before</th><th class="n">After</th></tr></thead>
+        <tbody>
+          <tr><td>1,000 rows</td><td class="n">~6.7 s</td><td class="n good">~0.3 s</td></tr>
+          <tr><td>3,000 rows</td><td class="n">~20 s</td><td class="n good">~1.3 s</td></tr>
+          <tr><td>10,000 rows, full download through the app</td><td class="n">~70 s (estimated)</td><td class="n good">~2.5 s</td></tr>
+        </tbody>
+      </table></div>
+      <p class="cs-caption">Benchmarks on a development machine with test data. The live server has a single CPU, so real-world times are somewhat higher, but the improvement is just as large.</p>
+      <p>All 73 automated tests pass, including new ones. These check that long statements split correctly across pages, show the right totals and page numbers, and no longer use the slow engine.</p>
+      <p><strong>Most importantly, the client didn't need a bigger server.</strong> The app still runs on the same ~₹700-a-month droplet.</p>
+
+      <h2><span class="cs-num">07 · Trade-offs</span>What we changed on purpose</h2>
+      <ul>
+        <li><strong>A slightly different look.</strong> To keep files small and fast, statements use a built-in font. That font has no ₹ symbol, so amounts show "Rs". The layout is very close to the original.</li>
+        <li><strong>No cache for repeat downloads.</strong> Even a 10,000-row statement is fast now, so caching wasn't worth the extra complexity.</li>
+      </ul>
+
+      <h2><span class="cs-num">08 · What we learned</span>Small businesses don't need big infrastructure</h2>
+      <ul>
+        <li><strong>Size the system to the real workload.</strong> 150 entries a month doesn't need a database server, a load balancer or a large cloud bill.</li>
+        <li><strong>Measure before you spend.</strong> The fix for the slow export was in the code, not the hardware. Upgrading the server would only have hidden the problem at a higher monthly cost.</li>
+        <li><strong>Monitor from day one.</strong> Slow-page logging and benchmarks turned "it feels slow" into numbers we could act on.</li>
+        <li><strong>Be honest about experiments.</strong> We told the client the low-cost setup was a trial. When we found a limit, we fixed it and showed them the numbers.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section style="background: #0B1B3F; position: relative; overflow: hidden;">
+  <div aria-hidden="true" style="position: absolute; inset: 0; background-image: linear-gradient(rgba(52,227,160,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(52,227,160,.07) 1px, transparent 1px); background-size: 48px 48px;"></div>
+  <div class="sx-wrap" style="position: relative; padding-top: 80px; padding-bottom: 80px; display: flex; flex-wrap: wrap; gap: 28px 48px; align-items: center; justify-content: space-between;">
+    <div style="flex: 1 1 480px; min-width: 0;">
+      <div class="sx-eyebrow" style="color: #34E3A0;">Your project next?</div>
+      <h2 class="sx-h2" style="color: #FFFFFF;">Software that fits your business and your budget.</h2>
+      <p style="margin: 16px 0 0; font-size: 18px; line-height: 1.6; color: #C9D3EE; max-width: 620px;">Tell us what you need. We'll give you an honest view of what it takes to build and to run, including what we're not sure of yet.</p>
+    </div>
+    <div class="sx-ctarow" style="display: flex; flex-wrap: wrap; gap: 12px;">
+      <a class="sx-btn" href="../../#contact" style="background: #34E3A0; color: #0B1B3F; text-decoration: none; font-weight: 700; font-size: 16px; padding: 16px 26px; border-radius: 12px;">Book a free consultation</a>
+      <a class="sx-btn" href="tel:+918590996674" style="background: transparent; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; padding: 15px 25px; border-radius: 12px; border: 1px solid #2A3B66;">Call +91 85909 96674</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer style="background: #F4F7FB; border-top: 1px solid #E3E8F0;">
+  <div class="sx-wrap" style="padding-top: 56px; padding-bottom: 28px; display: flex; flex-direction: column; gap: 40px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 36px;">
+      <div style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 14px; max-width: 360px;">
+        <picture style="align-self: flex-start;"><source srcset="../../logo.webp" type="image/webp"><img src="../../logo.png" alt="Simplifex" width="164" height="38" loading="lazy" style="height: 38px; width: auto; display: block;"></picture>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4C6B;">Custom ERP and e-commerce software for manufacturers, retailers and online brands. Based in Perumbavoor, Ernakulam, Kerala.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.7;"><a href="mailto:contact@simplifex.co.in" style="color:#0B1B3F">contact@simplifex.co.in</a><br><a href="tel:+918590996674" style="color:#0B1B3F">+91 85909 96674</a></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px 56px;">
+        <nav aria-label="Solutions" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: #5A6785;">Solutions</span>
+          <a href="../../#erp" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">ERP systems</a>
+          <a href="../../#ecommerce" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">E-commerce</a>
+          <a href="../../#erp" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">Inventory &amp; billing</a>
+        </nav>
+        <nav aria-label="Company" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: #5A6785;">Company</span>
+          <a href="../../case-studies/" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">Case studies</a>
+          <a href="../../#industries" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">Industries</a>
+          <a href="../../#process" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">How we work</a>
+          <a href="../../#faq" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">FAQ</a>
+          <a href="../../#contact" style="color: #0B1B3F; text-decoration: none; padding: 2px 0;">Contact</a>
+        </nav>
+      </div>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; border-top: 1px solid #DDE4EE; padding-top: 22px; font-size: 14px; color: #5A6785;">
+      <span>© <span id="sx-year">2026</span> Simplifex, Perumbavoor, Kerala. All rights reserved.</span>
+      <span style="font-family: 'IBM Plex Mono', monospace;">&gt;_ simplifying business</span>
+    </div>
+  </div>
+</footer>
+</div>
+<script>
+(function () {
+  var btn = document.getElementById('sx-menubtn');
+  var nav = document.getElementById('sx-mobilenav');
+  function setMenu(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    nav.hidden = !open;
+  }
+  if (btn && nav) {
+    btn.addEventListener('click', function () { setMenu(nav.hidden); });
+    nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !nav.hidden) { setMenu(false); btn.focus(); } });
+  }
+  var y = document.getElementById('sx-year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>

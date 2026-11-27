@@ -53,14 +53,22 @@
     "@id": "https://simplifex.co.in/#organization",
     "name": "Simplifex",
     "url": "https://simplifex.co.in/",
-    "logo": "https://simplifex.co.in/logo.png"
+    "logo": "https://simplifex.co.in/logo.png",
+    "sameAs": [
+     "https://www.linkedin.com/company/145462409/",
+     "https://www.instagram.com/tech.simplifex/"
+    ]
    },
    "publisher": {
     "@type": "Organization",
     "@id": "https://simplifex.co.in/#organization",
     "name": "Simplifex",
     "url": "https://simplifex.co.in/",
-    "logo": "https://simplifex.co.in/logo.png"
+    "logo": "https://simplifex.co.in/logo.png",
+    "sameAs": [
+     "https://www.linkedin.com/company/145462409/",
+     "https://www.instagram.com/tech.simplifex/"
+    ]
    },
    "about": [
     {
@@ -258,7 +266,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     <p style="margin: -10px 0 0; font-size: 14px; color: #5A6785;">By the Simplifex team · Published <time datetime="2026-11-24">24 November 2026</time></p>
     <h1 class="cs-h1" style="max-width: 900px;">A khata-style ledger app that runs for about ₹700 a month</h1>
     <p class="cs-lede">Nexora Global Ventures wanted a simple digital khata to track what each party owes. Their main requirement was keeping running costs as low as possible. We built it on a single small server with SQLite. When years of old records moved in, one feature hit its limit. Here is how we found the cause and fixed it.</p>
-    <ul class="cs-tags" aria-label="Technologies"><li>Django</li><li>SQLite</li><li>DigitalOcean 1&nbsp;GB droplet</li><li>ReportLab</li><li>Performance profiling</li></ul>
+    <ul class="cs-tags" aria-label="Technologies"><li>Django</li><li>SQLite</li><li>DigitalOcean 1&nbsp;GB droplet</li><li>ReportLab</li><li>django-performance-monitor</li></ul>
     <div class="cs-stats" style="margin-top: 20px;">
       <div class="cs-stat dark"><b>~₹700</b><span>server cost per month</span></div>
       <div class="cs-stat"><b>20&nbsp;s → 1.3&nbsp;s</b><span>3,000-row statement PDF, about 15× faster</span></div>
@@ -294,7 +302,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div><b>SQLite as the database</b>No separate database server to pay for or maintain.</div>
         <div><b>Hourly backups</b>The SQLite database file is backed up every hour, so little can ever be lost.</div>
         <div><b>Optimised queries</b>SQL queries tuned and N+1 query problems removed, so every page does only the work it needs.</div>
-        <div><b>Slow-page monitoring</b><a href="https://pypi.org/project/django-performance-monitor/" rel="noopener">django-performance-monitor</a> logs any request slower than a set threshold, so we can see problems before users report them.</div>
+        <div><b>Slow-page monitoring</b><a href="https://pypi.org/project/django-performance-monitor/" rel="noopener">django-performance-monitor</a>, our own open-source Django package, logs any request slower than a set threshold, so we can see problems before users report them.</div>
       </div>
       <p>It worked. Day-to-day entries, party ledgers and reports all ran smoothly on the small server.</p>
 
@@ -302,6 +310,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <p>Everything stayed smooth until we migrated the client's old records. Every page still loaded quickly. But <strong>exporting a party statement as a PDF pushed the server's CPU to 100%</strong>. Parties with long histories now had statements with thousands of rows.</p>
       <p>On a single-CPU server, that's not just one slow download. A busy CPU slows the app down for everyone using it at that moment.</p>
       <p>The easy answer would have been a bigger server, but that would have raised the monthly cost the client cared about. We decided to measure first.</p>
+      <div class="cs-note">Database performance is our home ground. Simplifex founder Afsal MS is the author of <a href="https://link.springer.com/book/10.1007/979-8-8688-2589-7" rel="noopener"><em>Mastering Django ORM: Performance Tuning and Advanced Query Optimization</em></a> (Apress, 2026), a book about exactly this kind of problem. He also maintains the open-source <a href="https://pypi.org/project/django-performance-monitor/" rel="noopener">django-performance-monitor</a> package we used on this project.</div>
 
       <h2><span class="cs-num">04 · What we found</span>Measured, not guessed</h2>
       <p>The statements were being produced with WeasyPrint. It turns an HTML page into a PDF using a full layout engine, much like a web browser does. That is a good choice for invoices, but it's expensive for very long tables: for every row it works out styles, column widths and the position of every cell.</p>
@@ -362,7 +371,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <ul>
         <li><strong>Size the system to the real workload.</strong> 150 entries a month doesn't need a database server, a load balancer or a large cloud bill.</li>
         <li><strong>Measure before you spend.</strong> The fix for the slow export was in the code, not the hardware. Upgrading the server would only have hidden the problem at a higher monthly cost.</li>
-        <li><strong>Monitor from day one.</strong> Slow-page logging and benchmarks turned "it feels slow" into numbers we could act on.</li>
+        <li><strong>Monitor from day one.</strong> Slow-page logging with our own django-performance-monitor, plus benchmarks, turned "it feels slow" into numbers we could act on.</li>
         <li><strong>Be honest about experiments.</strong> We told the client the low-cost setup was a trial. When we found a limit, we fixed it and showed them the numbers.</li>
       </ul>
     </article>
@@ -392,6 +401,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <picture style="align-self: flex-start;"><source srcset="../../logo.webp" type="image/webp"><img src="../../logo.png" alt="Simplifex" width="164" height="38" loading="lazy" style="height: 38px; width: auto; display: block;"></picture>
         <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #3E4C6B;">Custom ERP and e-commerce software for manufacturers, retailers and online brands. Based in Perumbavoor, Ernakulam, Kerala.</p>
         <p style="margin: 0; font-size: 15px; line-height: 1.7;"><a href="mailto:contact@simplifex.co.in" style="color:#0B1B3F">contact@simplifex.co.in</a><br><a href="tel:+918590996674" style="color:#0B1B3F">+91 85909 96674</a></p>
+        <p style="margin: 0; display: flex; gap: 16px; font-size: 15px; font-weight: 600;"><a href="https://www.linkedin.com/company/145462409/" rel="noopener" style="color: #047857;">LinkedIn</a><a href="https://www.instagram.com/tech.simplifex/" rel="noopener" style="color: #047857;">Instagram</a></p>
       </div>
       <div style="display: flex; flex-wrap: wrap; gap: 32px 56px;">
         <nav aria-label="Solutions" style="display: flex; flex-direction: column; gap: 10px; font-size: 15px;">
